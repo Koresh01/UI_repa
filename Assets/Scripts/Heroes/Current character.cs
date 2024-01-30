@@ -7,8 +7,8 @@ public class CurrentCharacter : MonoBehaviour
     [SerializeField] private PlaneRotation _planeRotation;
 
     [SerializeField] private GameObject character;
-    [SerializeField] private float speed;
-    [SerializeField] private float health;
+    public float speed;
+    public float health;
 
     private void Start()
     {
