@@ -6,7 +6,6 @@ public class PlaneRotation : MonoBehaviour
 {
     [SerializeField] GameObject _rotationPlanform;
     public GameObject[] playersPrefabs;
-    public GameObject[] _players;
     public int _characterIndex = 0;
 
     private Quaternion _targetRotation;
@@ -15,7 +14,6 @@ public class PlaneRotation : MonoBehaviour
     void Start()
     {
         _targetRotation = _rotationPlanform.transform.rotation;
-        _players = new GameObject[playersPrefabs.Length];
         _angle = GetStepRotation();
         SpawnPlayers();
     }
@@ -30,13 +28,13 @@ public class PlaneRotation : MonoBehaviour
     {
         _characterIndex -= 1;
         if (_characterIndex < 0)
-            _characterIndex = _players.Length - 1;
+            _characterIndex = playersPrefabs.Length - 1;
         Rotate(-_angle);
     }
     public void RotateRight()
     {
         _characterIndex += 1;
-        _characterIndex %= _players.Length;
+        _characterIndex %= playersPrefabs.Length;
         Rotate(+_angle);
     }
     private void Rotate(float angle)
@@ -46,17 +44,17 @@ public class PlaneRotation : MonoBehaviour
     }
     private float GetStepRotation()
     {
-        return 360f / _players.Length;
+        return 360f / playersPrefabs.Length;
     }
 
 
     public void SpawnPlayers()
     {
-        for (int i = 0; i < _players.Length; i++)
+        for (int i = 0; i < playersPrefabs.Length; i++)
         {
             Vector3 playerPosition = _rotationPlanform.transform.position + new Vector3(Mathf.Cos(_angle * i * Mathf.Deg2Rad), 0, Mathf.Sin(_angle * i * Mathf.Deg2Rad)) * 5;
-            _players[i] = Instantiate(playersPrefabs[i], playerPosition, Quaternion.identity);
-            _players[i].transform.parent = _rotationPlanform.transform;
+            playersPrefabs[i] = Instantiate(playersPrefabs[i], playerPosition, Quaternion.identity);
+            playersPrefabs[i].transform.parent = _rotationPlanform.transform;
         }
     }
 
