@@ -17,9 +17,15 @@ public class PaussMenu : MonoBehaviour
     private void Update()
     {
         if (Input.GetKeyUp(KeyCode.Escape) && pausseMenu.activeSelf)
+        {
             pausseMenu.SetActive(false);
+            Time.timeScale = 1.0f;
+        }
         else if (Input.GetKeyUp(KeyCode.Escape))
+        {
             pausseMenu.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
     private void OnEnable()
@@ -40,6 +46,7 @@ public class PaussMenu : MonoBehaviour
     private void ContinueGame()
     {
         pausseMenu.SetActive(false);
+        Time.timeScale = 1.0f;
     }
     private void ResetLevel()
     {
