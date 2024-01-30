@@ -14990,6 +14990,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8084814632557721744}
   - component: {fileID: 8084814632557721745}
+  - component: {fileID: 8084814632557721746}
   m_Layer: 0
   m_Name: 3Denvironment
   m_TagString: Untagged
@@ -16890,6 +16891,22 @@ MonoBehaviour:
   - {fileID: 9022682529893097233, guid: b3a1819d3cc7d05488e4cb7ade7da5bf, type: 3}
   - {fileID: 1780209442519861770, guid: 41448509e467f5d4799dde0beeb2ab54, type: 3}
   _characterIndex: 0
+--- !u!114 &8084814632557721746
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5394461262531698506}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c20a6ac3a1c050e4fade35005e764c4d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _planeRotation: {fileID: 8084814632557721745}
+  character: {fileID: 0}
+  speed: 0
+  health: 0
 --- !u!1 &8205875656351903554
 GameObject:
   m_ObjectHideFlags: 0

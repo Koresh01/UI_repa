@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Currentcharacter : MonoBehaviour
+public class CurrentCharacter : MonoBehaviour
 {
-    [SerializeField] private PlaneRotation pr;
+    [SerializeField] private PlaneRotation _planeRotation;
 
     [SerializeField] private GameObject character;
     [SerializeField] private float speed;
@@ -16,7 +16,8 @@ public class Currentcharacter : MonoBehaviour
     }
     private void Update()
     {
-        character = pr.playersPrefabs[pr._characterIndex];
+        int indx = _planeRotation._characterIndex;
+        character = _planeRotation.playersPrefabs[indx];
         speed = character.GetComponent<Character_parameters>().speed;
         health = character.GetComponent<Character_parameters>().helth;
     }
