@@ -59,6 +59,7 @@ public class PaussMenu : MonoBehaviour
     private void MainMenu()
     {
         SceneManager.LoadScene(0);
+        Time.timeScale = 1.0f;
     }
 
 }
