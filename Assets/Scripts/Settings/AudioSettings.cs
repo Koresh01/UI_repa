@@ -9,7 +9,9 @@ public class AudioSetting : MonoBehaviour
     private static readonly string MusicPref = "MusicPref";
     private static readonly string SoundEffectsPref = "SoundEffectsPref";
     private int firstPlayInt;
+
     public Slider musicSlider, soundEffectSlider;
+
     private float musicFloat, soundEffectFloat;
     public AudioSource musicAudio;
     public AudioSource soundEffectAudio;
