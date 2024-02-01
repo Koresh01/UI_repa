@@ -11,11 +11,13 @@ public class TopCanvasView : MonoBehaviour
     [SerializeField] private Button _armoryBtn;
 
     [SerializeField] private Button _settingsBtn;
+    [SerializeField] private Button _exitBtn;
 
     [SerializeField] private GameObject _heroesTab;
     [SerializeField] private GameObject _levelsTab;
     [SerializeField] private GameObject _lobbyTab;
     [SerializeField] private GameObject _armoryTab;
+    [SerializeField] private GameObject _exitTab;
 
     [SerializeField] private GameObject _settingsTab;
 
@@ -28,6 +30,7 @@ public class TopCanvasView : MonoBehaviour
         _armoryBtn.onClick.AddListener(armoryBtnDown);
 
         _settingsBtn.onClick.AddListener(settingsBtnDown);
+        _exitBtn.onClick.AddListener(exitBtnDown);
     }
 
     private void OnDisable()
@@ -38,6 +41,7 @@ public class TopCanvasView : MonoBehaviour
         _armoryBtn.onClick.RemoveListener(armoryBtnDown);
 
         _settingsBtn.onClick.RemoveListener(settingsBtnDown);
+        _exitBtn.onClick.RemoveListener(exitBtnDown);
     }
 
     void heroesBtnDown()
@@ -72,5 +76,14 @@ public class TopCanvasView : MonoBehaviour
     void settingsBtnDown()
     {
         _settingsTab.SetActive(true);
+    }
+    void exitBtnDown()
+    {
+        _heroesTab.SetActive(false);
+        _levelsTab.SetActive(false);
+        _lobbyTab.SetActive(false);
+        _armoryTab.SetActive(false);
+        _settingsTab.SetActive(false);
+        _exitTab.SetActive(true);
     }
 }
