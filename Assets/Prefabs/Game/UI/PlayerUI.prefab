@@ -796,4 +796,4 @@ MonoBehaviour:
   _goldValue: {fileID: 9195532286659922338}
   _hpSlider: {fileID: 1897021151150300895}
   _levelProgressBar: {fileID: 2964508661855225986}
-  _levelProgressText: {fileID: 0}
+  _levelProgressText: {fileID: 1334791347357611980}
