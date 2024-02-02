@@ -6,15 +6,18 @@ using UnityEngine.UI;
 
 public class TopCanvasView : MonoBehaviour
 {
+    [Header("Кнопки ВКЛАДОК этого канваса:")]
     [SerializeField] private Button _heroesBtn;
     [SerializeField] private Button _levelsBtn;
     [SerializeField] private Button _lobbyBtn;
     [SerializeField] private Button _armoryBtn;
 
+    [Header("Вспомогательные кнопки:")]
     [SerializeField] private Button _settingsBtn;
     [SerializeField] private Button _exitBtn;
     [SerializeField] private Button _startBtn;
 
+    [Header("Игровые объекты вкладок:")]
     [SerializeField] private GameObject _heroesTab;
     [SerializeField] private GameObject _levelsTab;
     [SerializeField] private GameObject _lobbyTab;
@@ -32,7 +35,6 @@ public class TopCanvasView : MonoBehaviour
 
         _settingsBtn.onClick.AddListener(settingsBtnDown);
         _exitBtn.onClick.AddListener(exitBtnDown);
-        _startBtn.onClick.AddListener(startBtnDown);
     }
 
     private void OnDisable()
@@ -44,7 +46,6 @@ public class TopCanvasView : MonoBehaviour
 
         _settingsBtn.onClick.RemoveListener(settingsBtnDown);
         _exitBtn.onClick.RemoveListener(exitBtnDown);
-        _startBtn.onClick.RemoveListener(startBtnDown);
     }
 
     void heroesBtnDown()
@@ -53,8 +54,7 @@ public class TopCanvasView : MonoBehaviour
         _levelsTab.SetActive(false);
         _lobbyTab.SetActive(false);
         _armoryTab.SetActive(false);
-        
-        
+
         _startBtn.gameObject.SetActive(false);
     }
     void levelsBtnDown()
@@ -97,14 +97,5 @@ public class TopCanvasView : MonoBehaviour
         _armoryTab.SetActive(false);
         _settingsTab.SetActive(false);
         _exitTab.SetActive(true);
-    }
-
-    void startBtnDown()
-    {
-        // Передаем GameSessionCharacteristics на другую сцену:
-        //GameManager.Instance.SetGameSessionCharacteristics(_gameSessionCharacteristics);
-
-        // Загружаем другую сцену:
-        SceneManager.LoadScene("Level1");
     }
 }

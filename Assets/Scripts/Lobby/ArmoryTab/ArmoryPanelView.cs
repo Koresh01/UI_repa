@@ -7,6 +7,7 @@ using UnityEngine;
 
 public class ArmoryPanelView : MonoBehaviour
 {
+    [Header("Тексовые поля:")]
     [SerializeField] private TMP_Text _nameText;
     [SerializeField] private TMP_Text _typeText;
     [SerializeField] private TMP_Text _damageText;
@@ -17,6 +18,7 @@ public class ArmoryPanelView : MonoBehaviour
     [SerializeField] private TMP_Text _bulletCountText;
     [SerializeField] private TMP_Text _explosionAreaText;
 
+    [Header("Слайдеры характеристик оружия:")]
     [SerializeField] private GameObject _spreadField;
     [SerializeField] private GameObject _bulletCountField;
     [SerializeField] private GameObject _explosionAreaField;

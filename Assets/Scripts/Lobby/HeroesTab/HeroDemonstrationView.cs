@@ -10,7 +10,7 @@ public class HeroDemonstrationView : MonoBehaviour
     public void ChangeHeroModel(GameObject hero)
     {
         Destroy(_hero);
-        _hero = Instantiate(hero, _spawn.position, Quaternion.identity);
+        _hero = Instantiate(hero, _spawn.position, Quaternion.identity, transform);
         _hero.AddComponent<Rotator>();
     }
 }

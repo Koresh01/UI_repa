@@ -4,6 +4,7 @@ using UnityEngine.SceneManagement;
 using TMPro;
 public class LevelPanelViev : MonoBehaviour
 {
+    [Header("Кнопки этой панели:")]
     [SerializeField] private Button _lvl1Button;
     [SerializeField] private Button _lvl2Button;
     [SerializeField] private Button _lvl3Button;
@@ -16,13 +17,17 @@ public class LevelPanelViev : MonoBehaviour
     [SerializeField] private Button _exitButton;
     [SerializeField] private Button _exitLevelConirmationBatton;
 
+    [Header("Вкладки уточнения сложности:")]
     [SerializeField] private GameObject _difficultyLevel;
     [SerializeField] private GameObject _levelConfirmation;
 
+    [Header("Текстовые поля:")]
     [SerializeField] private TMP_Text _selectedLevel;
     [SerializeField] private TMP_Text _selectedLevelConfirmation;
 
-    private int levelСounter;
+    [Header("Собранная скриптом инфомация:")]
+    public int levelСounter;
+    public string difficulty;
 
 
     private void OnEnable()
@@ -81,21 +86,22 @@ public class LevelPanelViev : MonoBehaviour
     private void EasyLevelButtonDown()
     {
         _levelConfirmation.SetActive(true);
-        _selectedLevelConfirmation.text = "легкий";
+        difficulty = _selectedLevelConfirmation.text = "легкий";
     }
     private void OrdinaryLevelButtonDown()
     {
         _levelConfirmation.SetActive(true);
-        _selectedLevelConfirmation.text = "средний";
+        difficulty = _selectedLevelConfirmation.text = "средний";
     }
     private void HardLevelButtonDown()
     {
         _levelConfirmation.SetActive(true);
-        _selectedLevelConfirmation.text = "сложный";
+        difficulty = _selectedLevelConfirmation.text = "сложный";
     }
     private void YesButtonDown()
     {
-        SceneManager.LoadScene(levelСounter);
+        _levelConfirmation.SetActive(false);    // пока что так. Главное что она запоминает уровень и сложность и отправляет в скрипт lobby_panel_view.
+        // SceneManager.LoadScene(levelСounter);
     }
     private void NoButtonDown()
     {

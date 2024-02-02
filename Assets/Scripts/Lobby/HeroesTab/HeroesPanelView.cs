@@ -6,14 +6,17 @@ using UnityEngine;
 
 public class HeroesPanelView : MonoBehaviour
 {
-    [SerializeField] private GameObject _heroDemonstration;
+    [Header("3D environment:")]
+    public GameObject curHero;
+    [SerializeField] private GameObject _heroDemonstration; // 3D env for demonstration out hero, but with Rotation Script...
     [SerializeField] private GameObject[] _heroModels;
 
+    [Header("Текстовые поля:")]
     [SerializeField] private TMP_Text _typeText;
     [SerializeField] private TMP_Text _speedText;
     [SerializeField] private TMP_Text _healthText;
 
-
+    [Header("Слайдеры(игровые объекты) слайдеров, поправь:")]
     [SerializeField] private GameObject _healthField;
     [SerializeField] private GameObject _speedField;
 
@@ -85,22 +88,27 @@ public class HeroesPanelView : MonoBehaviour
         {
             case CharacterTypes.Mage:
                 GameObject mag = _heroModels[0];
+                curHero = mag;
                 _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(mag);
                 break;
             case CharacterTypes.archer:
                 GameObject archer = _heroModels[1];
+                curHero = archer;
                 _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(archer);
                 break;
             case CharacterTypes.knight:
                 GameObject knight = _heroModels[2];
+                curHero = knight;
                 _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(knight);
                 break;
             case CharacterTypes.robot:
                 GameObject robot = _heroModels[3];
+                curHero = robot;
                 _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(robot);
                 break;
             case CharacterTypes.Melee:
                 GameObject Melee = _heroModels[4];
+                curHero = Melee;
                 _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(Melee);
                 break;
         }
