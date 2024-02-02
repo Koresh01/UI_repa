@@ -7,6 +7,7 @@ using UnityEngine;
 public class HeroesPanelView : MonoBehaviour
 {
     [SerializeField] private GameObject _heroDemonstration;
+    [SerializeField] private GameObject[] _heroModels;
 
     [SerializeField] private TMP_Text _typeText;
     [SerializeField] private TMP_Text _speedText;
@@ -20,11 +21,13 @@ public class HeroesPanelView : MonoBehaviour
     {
         _heroDemonstration.SetActive(true);
         Character.GetInfo += DisplayInfo;
+        Character.GetInfo += DisplayHeroModel;
     }
     private void OnDisable()
     {
         _heroDemonstration.SetActive(false);
         Character.GetInfo -= DisplayInfo;
+        Character.GetInfo -= DisplayHeroModel;
     }
 
     public void DisplayInfo(CharacterCharacteristic characterCharacteristic)
@@ -74,5 +77,34 @@ public class HeroesPanelView : MonoBehaviour
         _speedField.SetActive(true);
         _speedText.text = Convert.ToString(characterCharacteristic.Speed);
     }
+
+
+    public void DisplayHeroModel(CharacterCharacteristic characterCharacteristic)
+    {
+        switch (characterCharacteristic.Type)
+        {
+            case CharacterTypes.Mage:
+                GameObject mag = _heroModels[0];
+                _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(mag);
+                break;
+            case CharacterTypes.archer:
+                GameObject archer = _heroModels[1];
+                _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(archer);
+                break;
+            case CharacterTypes.knight:
+                GameObject knight = _heroModels[2];
+                _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(knight);
+                break;
+            case CharacterTypes.robot:
+                GameObject robot = _heroModels[3];
+                _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(robot);
+                break;
+            case CharacterTypes.Melee:
+                GameObject Melee = _heroModels[4];
+                _heroDemonstration.GetComponentInChildren<HeroDemonstrationView>().ChangeHeroModel(Melee);
+                break;
+        }
+    }
+
 }
 
