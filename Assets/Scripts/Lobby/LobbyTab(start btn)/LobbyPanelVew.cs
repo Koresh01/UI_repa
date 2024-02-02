@@ -20,7 +20,6 @@ public class LobbyPanelVew : MonoBehaviour
     [SerializeField] private int _level;
     [SerializeField] private string _difficulty;
 
-
     private void OnEnable()
     {
         _startBtn.onClick.AddListener(startBtnDown);
@@ -32,11 +31,12 @@ public class LobbyPanelVew : MonoBehaviour
     void startBtnDown()
     {
         CollectParams();
+        SaveParams();
         // Передаем GameSessionCharacteristics на другую сцену:
         //GameManager.Instance.SetGameSessionCharacteristics(_gameSessionCharacteristics);
 
         // Загружаем другую сцену:
-        SceneManager.LoadScene("Level1");
+        // SceneManager.LoadScene("Level1");
     }
     private void CollectParams()
     {
@@ -44,5 +44,12 @@ public class LobbyPanelVew : MonoBehaviour
         //_gun = armory_panel_info.curGun
         _level = level_panel_info.levelСounter;
         _difficulty = level_panel_info.difficulty;
+    }
+    private void SaveParams()
+    {
+        LevelsParametrs._hero = _hero;
+        //_gun = armory_panel_info.curGun
+        LevelsParametrs._level = _level;
+        LevelsParametrs._difficulty = _difficulty;
     }
 }
