@@ -18,8 +18,8 @@ public class CharacterController : MonoBehaviour
 
         if (movement != Vector3.zero)
         {
-            Quaternion toRotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
-            transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
+            //Quaternion toRotation = Quaternion.LookRotation(movement.normalized, Vector3.up);
+            //transform.rotation = Quaternion.Lerp(transform.rotation, toRotation, rotationSpeed * Time.deltaTime);
         }
     }
 }
