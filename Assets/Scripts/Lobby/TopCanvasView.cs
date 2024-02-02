@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using UnityEngine.UI;
 
 public class TopCanvasView : MonoBehaviour
@@ -22,7 +23,6 @@ public class TopCanvasView : MonoBehaviour
 
     [SerializeField] private GameObject _settingsTab;
 
-
     private void OnEnable()
     {
         _heroesBtn.onClick.AddListener(heroesBtnDown);
@@ -32,6 +32,7 @@ public class TopCanvasView : MonoBehaviour
 
         _settingsBtn.onClick.AddListener(settingsBtnDown);
         _exitBtn.onClick.AddListener(exitBtnDown);
+        _startBtn.onClick.AddListener(startBtnDown);
     }
 
     private void OnDisable()
@@ -43,6 +44,7 @@ public class TopCanvasView : MonoBehaviour
 
         _settingsBtn.onClick.RemoveListener(settingsBtnDown);
         _exitBtn.onClick.RemoveListener(exitBtnDown);
+        _startBtn.onClick.RemoveListener(startBtnDown);
     }
 
     void heroesBtnDown()
@@ -95,5 +97,14 @@ public class TopCanvasView : MonoBehaviour
         _armoryTab.SetActive(false);
         _settingsTab.SetActive(false);
         _exitTab.SetActive(true);
+    }
+
+    void startBtnDown()
+    {
+        // Передаем GameSessionCharacteristics на другую сцену:
+        //GameManager.Instance.SetGameSessionCharacteristics(_gameSessionCharacteristics);
+
+        // Загружаем другую сцену:
+        SceneManager.LoadScene("Level1");
     }
 }

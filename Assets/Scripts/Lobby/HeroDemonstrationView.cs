@@ -11,5 +11,6 @@ public class HeroDemonstrationView : MonoBehaviour
     {
         Destroy(_hero);
         _hero = Instantiate(hero, _spawn.position, Quaternion.identity);
+        _hero.AddComponent<Rotator>();
     }
 }
