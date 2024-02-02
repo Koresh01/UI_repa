@@ -32,11 +32,9 @@ public class LobbyPanelVew : MonoBehaviour
     {
         CollectParams();
         SaveParams();
-        // Передаем GameSessionCharacteristics на другую сцену:
-        //GameManager.Instance.SetGameSessionCharacteristics(_gameSessionCharacteristics);
 
         // Загружаем другую сцену:
-        // SceneManager.LoadScene("Level1");
+        SceneManager.LoadScene("Level1");
     }
     private void CollectParams()
     {
