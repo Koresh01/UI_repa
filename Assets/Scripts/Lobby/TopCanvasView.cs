@@ -12,6 +12,7 @@ public class TopCanvasView : MonoBehaviour
 
     [SerializeField] private Button _settingsBtn;
     [SerializeField] private Button _exitBtn;
+    [SerializeField] private Button _startBtn;
 
     [SerializeField] private GameObject _heroesTab;
     [SerializeField] private GameObject _levelsTab;
@@ -50,6 +51,9 @@ public class TopCanvasView : MonoBehaviour
         _levelsTab.SetActive(false);
         _lobbyTab.SetActive(false);
         _armoryTab.SetActive(false);
+        
+        
+        _startBtn.gameObject.SetActive(false);
     }
     void levelsBtnDown()
     {
@@ -57,6 +61,8 @@ public class TopCanvasView : MonoBehaviour
         _levelsTab.SetActive(true);
         _lobbyTab.SetActive(false);
         _armoryTab.SetActive(false);
+
+        _startBtn.gameObject.SetActive(false);
     }
     void lobbyBtnDown()
     {
@@ -64,6 +70,8 @@ public class TopCanvasView : MonoBehaviour
         _levelsTab.SetActive(false);
         _lobbyTab.SetActive(true);
         _armoryTab.SetActive(false);
+
+        _startBtn.gameObject.SetActive(true);
     }
     void armoryBtnDown()
     {
@@ -71,6 +79,8 @@ public class TopCanvasView : MonoBehaviour
         _levelsTab.SetActive(false);
         _lobbyTab.SetActive(false);
         _armoryTab.SetActive(true);
+
+        _startBtn.gameObject.SetActive(false);
     }
 
     void settingsBtnDown()

@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b05d37cb04a60554aa3253bb0b4d73e0, type: 3}
   m_Name: character1
   m_EditorClassIdentifier: 
-  _type: 1
+  _type: 0
   _icon: {fileID: 0}
   _speed: 2.8
   _heath: 76.71
