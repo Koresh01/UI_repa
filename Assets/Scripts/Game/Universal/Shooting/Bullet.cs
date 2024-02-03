@@ -20,7 +20,7 @@ public class Bullet : MonoBehaviour
         RaycastHit hit;
         if (Physics.Raycast(transform.position, transform.forward, out hit, speed * Time.deltaTime))
         {
-            if (hit.collider.CompareTag("Enemy"))
+            if (hit.collider.GetComponentInChildren<EnemyMovement>() != null) 
             {
                 // Обработка столкновения
                 Destroy(hit.collider.gameObject);

@@ -13,6 +13,8 @@ public class Shoot : MonoBehaviour
     public GameObject bulletPrefab;
     public Transform tube;
 
+    private bool _canShot = true;
+
     private void Start()
     {
         // Получаем компонент AudioSource из этого объекта или добавляем его, если его нет
@@ -23,20 +25,24 @@ public class Shoot : MonoBehaviour
         }
     }
 
-    private void Update()
+    void Update()
     {
-        while (cur < reload)
+        if (Input.GetMouseButton(0) && _canShot)
         {
-            // Проверяем, была ли нажата левая кнопка мыши
-            if (cur >= reload)
-            {
-                // Воспроизводим звук
-                audioSource.clip = clickSound;
-                audioSource.Play();
-                Instantiate(bulletPrefab, transform.position, tube.rotation);
+            StartCoroutine(MakeShoot());
 
-                cur = 0f;
-            }
+            // Воспроизводим звук
+            audioSource.clip = clickSound;
+            audioSource.Play();
+            Instantiate(bulletPrefab, transform.position, tube.rotation);
+
+            _canShot = false;
         }
+    }
+
+    IEnumerator MakeShoot()
+    {
+        yield return new WaitForSeconds(reload);
+        _canShot = true;
     }
 }
