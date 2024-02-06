@@ -1,13 +1,12 @@
 using System;
-using System.Collections;
-using System.Collections.Generic;
-using System.Diagnostics;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class WeaponInfo : MonoBehaviour
 {
     [SerializeField] private TMP_Text _nameText;
+    [SerializeField] private TMP_Text _costText;
     [SerializeField] private TMP_Text _typeText;
     [SerializeField] private TMP_Text _damageText;
     [SerializeField] private TMP_Text _fireRateText;
@@ -16,16 +15,21 @@ public class WeaponInfo : MonoBehaviour
     [SerializeField] private TMP_Text _spreadText;
     [SerializeField] private TMP_Text _bulletCountText;
     [SerializeField] private TMP_Text _explosionAreaText;
-
     [SerializeField] private GameObject _spreadField;
     [SerializeField] private GameObject _bulletCountField;
     [SerializeField] private GameObject _explosionAreaField;
+    [SerializeField] private Button _upgradeButton;
+    public static Action<WeaponCharacteristic> GetUpgradeInfo;
 
     private void OnEnable() {
         Weapon.GetInfo += DisplayInfo;
+        Upgrade.SetLevel += DisplayInfo;
+        BuyUpgrade.SucsecfulBuy += DisplayInfo;
     }
     private void OnDisable() {
         Weapon.GetInfo -= DisplayInfo;
+        Upgrade.SetLevel -= DisplayInfo;
+        BuyUpgrade.SucsecfulBuy -= DisplayInfo;
     }
 
     public void DisplayInfo(WeaponCharacteristic weaponCharacteristic)
@@ -34,6 +38,7 @@ public class WeaponInfo : MonoBehaviour
         _bulletCountField.SetActive(false);
         _explosionAreaField.SetActive(false);
         _nameText.text = weaponCharacteristic.Name;
+        TryDisplayBuyInterface(weaponCharacteristic);
         _typeText.text = Convert.ToString(weaponCharacteristic.Type);
         _damageText.text = Convert.ToString(weaponCharacteristic.Damage);
         _fireRateText.text = Convert.ToString(weaponCharacteristic.FireRate);
@@ -82,5 +87,21 @@ public class WeaponInfo : MonoBehaviour
     {
         _explosionAreaField.SetActive(true);
         _explosionAreaText.text = Convert.ToString(weaponCharacteristic.ExplosionArea);
+    }
+
+    private void TryDisplayBuyInterface(WeaponCharacteristic weaponCharacteristic)
+    {
+        if(weaponCharacteristic.Level <= PlayerPrefs.GetInt($"Level{weaponCharacteristic.Name}"))
+        {
+            _costText.gameObject.SetActive(false);
+            _upgradeButton.gameObject.SetActive(false);
+        }
+        else
+        {
+            _costText.gameObject.SetActive(true);
+            _costText.text = Convert.ToString(weaponCharacteristic.Cost);
+            _upgradeButton.gameObject.SetActive(true);
+            GetUpgradeInfo?.Invoke(weaponCharacteristic);
+        }
     }
 }

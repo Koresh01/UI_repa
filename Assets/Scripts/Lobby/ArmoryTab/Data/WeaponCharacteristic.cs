@@ -5,6 +5,12 @@ public class WeaponCharacteristic : ScriptableObject
 {
    [SerializeField] private string _name;
    public string Name => _name;
+   [SerializeField] private int _level;
+   public int Level => _level;
+   [SerializeField] private int _cost;
+   public int Cost => _cost;
+   [SerializeField] private Sprite[] _sprites;
+   public Sprite[] Sprites => _sprites;
    [SerializeField] private WeaponTypes _type;
    public WeaponTypes Type => _type;
    [SerializeField] private int _damage;

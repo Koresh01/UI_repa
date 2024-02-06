@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56724d3861afa4449a6d29d7c66d8bde, type: 3}
+  m_Name: Gun1_level3
+  m_EditorClassIdentifier: 
+  _name: Gun1
+  _level: 2
+  _cost: 1000
+  _sprites:
+  - {fileID: 1929638873, guid: f5d71e6d127d4b044adf55d31dac0014, type: 3}
+  - {fileID: -1752196258, guid: f5d71e6d127d4b044adf55d31dac0014, type: 3}
+  - {fileID: -308467063, guid: f5d71e6d127d4b044adf55d31dac0014, type: 3}
+  _type: 0
+  _damage: 25
+  _fireRate: 7
+  _cooldown: 1
+  _distance: 8
+  _spread: 6
+  _bulletCount: 0
+  _explosionArea: 0

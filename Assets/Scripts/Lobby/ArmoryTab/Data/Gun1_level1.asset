@@ -10,14 +10,20 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 56724d3861afa4449a6d29d7c66d8bde, type: 3}
-  m_Name: Gun2
+  m_Name: Gun1_level1
   m_EditorClassIdentifier: 
-  _name: Gun2
+  _name: Gun1
+  _level: 0
+  _cost: 0
+  _sprites:
+  - {fileID: 1929638873, guid: f5d71e6d127d4b044adf55d31dac0014, type: 3}
+  - {fileID: -1752196258, guid: f5d71e6d127d4b044adf55d31dac0014, type: 3}
+  - {fileID: -308467063, guid: f5d71e6d127d4b044adf55d31dac0014, type: 3}
   _type: 0
-  _damage: 20
-  _fireRate: 1
-  _cooldown: 5
-  _distance: 3
-  _spread: 50
-  _bulletCount: 6
+  _damage: 15
+  _fireRate: 5
+  _cooldown: 3
+  _distance: 2
+  _spread: 10
+  _bulletCount: 0
   _explosionArea: 0
